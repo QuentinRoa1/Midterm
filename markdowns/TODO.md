@@ -1,3 +1,8 @@
+<script>
+    // redirects anyone who tries to load this in browser
+    window.location.href = "../index.html";
+</script>
+
 # **PodScholar** -- To Do List
 
 ## **Header for Most Pages**
