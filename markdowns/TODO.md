@@ -186,7 +186,7 @@
   - **Journal**
     - text input
   - **Category**
-    - at some point, will be select menu, but for now, text
+    - select menu
   - **Published**
     - date input
   - **DOI #**
