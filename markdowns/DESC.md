@@ -43,20 +43,11 @@
 - DOI #
 - Podcast
 ---
-## **Sidebar for feeds**
-- floated to left
-- always contains Sort By Date
-  - Newest and Oldest
-    - calls FeedLoader with N or O
-- Sometimes contains Search by date published
-  - Contains years each thing was published, developed live via javascript
----
 ## **Main Index Page**
 - Simple
 - Header
 - Displays newest 15 podcasts
-- Load More button at bottom links to `search.html?page=2&terms=all`
-- Sidebar is there
+- Load More button at bottom links to `search.html`
 - Footer
 ---
 ## **Search Page**
@@ -248,7 +239,6 @@
 ## **Saved Podcast Feed**
 - low priority
 - Header
-- Sidebar, oldest/newest only
 - Basic feed, no search bar
   - checks user's saved list
   - cross references the index# of each entry with the podcast list indices

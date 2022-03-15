@@ -31,14 +31,12 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
   - DOI #
   - Podcast player
 - Design a placholder card on the main page, give all of these attributes ID's and the needed classes
+- Hide this card and remove all placeholder data. Renmae the id of this card to #templateCard
 - use Bootstrap to format as much as possible.
 
 ### **Feeds**
 - Simple
 - a div with a Header (probs h3-ish) and inner div to place cards into. The header text will change based on the web page, but is blank by default.
-#### **SideBar**
-- Described in pdf/md
-- in every feed
 
 ### **Sign-in, Sign-up page**
 - Simple form, make header redirect to index. No buttons in header.
@@ -54,7 +52,7 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
 
 ## **Data Manipulation**
 ### **Ajax Accessors**
-- Methods called that relevant data
+- Methods called that retrieve relevant data. They DO NOT VALIDATE DATA. DATA VALIDATION MUST BE DONE BEFORE CALLING THESE METHODS
 - **getAuthors()**
   - Returns the array of authors/user data
 - **getPods()**
@@ -80,8 +78,7 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
   - *this will be used for saving a pod to an author's history/saved list*
 - **deletePods(pod)**
   - gets Pod array
-  - sets pod @ podRay[pod] to an empty object
-    - this way we don't have to update saved lists
+  - removes podcast at podRay[pod]
   - putPods(podInfo)
 - **ratePods(pod, ratingInfo)**
   - gets Pod array
@@ -90,6 +87,65 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
 
 ## **Data Validation**
 
-## **Dom Manipulation**
+## **DOM Manipulation**
+### Feed Stuff
+#### The process of loading a feed:
+- create and format a template card. hide it, append it somewhere in the document outside of the feed
+- Get the card data and any relevant conditions on the page.
+- clone #templateCard, fill it with data, append clone
+  - **`cardLoader(cardData)`** -- builds the html of the cards and appends the needed text
+    - clone the template
+    - give the clone a new id
+    - fill the clone with the relevant data
+    - append it to the main feed
+- **`feedLoader(cardDataArray)`** -- fills the feed with cards
+  - CARDS MUST BE MADE FIRST
+  - for (card of cardDataArray), call cardLoader(cardData)
+
+- **`filter(podData, conditions)`**
+  - for (condition in conditions) loop
+    - check if podData[condition] == conditions[condition]
+    - if so, add to return array
+
+- **`searchListener(eventObj)`** -- redirects a user to the search page
+  - retreives data from search bar.
+  - explodes string into array with space seperators
+  - generates the query string for the new url
+  - redirects user to new url
+    - e.g. search bar says "search terms are formatted like this" then the url is: `search.html?query=search+terms+are+formatted+like+this`
+
+- **`indexLoader()`** -- first function called on index.html to load its feed
+  - add event listener (searchListener(e)) to search bar's button
+  - get pod data
+  - load more button at bottom links to search.html
+
+- **`searcher(podData, searchTerms)`** -- searches through pod data for matches
+  - create a returnArray = []
+  - makes search terms all lowercase
+    - will be changed in future
+  - Checks if a podcast's title, category or tags match when they are also all lowercase. if they do, add them to returnArray
+  - return returnArray
+
+- **`searchLoader(query="all")`** --  first function called on search.html to load the page
+  - add event listener to search Button on search bar
+    - listener calls searchListener(e)
+  - get all pod data
+  - if query isn't "all":
+    - podData = searcher(podData, query)
+    - no else, feedLoader is called below with full podData array
+  - then load cards with feedLoader(podData)
+
+- **`authLoader(authID)`** -- function called on profile.html to load the feed data
+  - get all pod data
+  - podDataVar = filter(podDataVar, {author: authID})
+    - filters pod data by only entries from this author
+  - feedLoader(podDataVar)
+
+- **`savedLoader(authID)`** -- first function called on saved.html to load page
+  - get author data for authors[authID]
+    - store the author's saved pod numbers
+  - get all pod data
+  - get the pods that match the author's saved ID's, store in new array var
+  - call FeedLoader(savedPodsVar)
 
 ## **Authentication**

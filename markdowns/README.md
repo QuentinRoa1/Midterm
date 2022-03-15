@@ -162,7 +162,8 @@ http://jsonblob.com/952471299104718848
             /* will return an array of objects formatted like like this:
                 [
                     {
-                        "DOI": 1234561234,
+                        "ID: : 1,
+                        "DOI": "1234561234",
                         "fName": "Dylan",
                         "lName": "Gaines",
                         "email": "gainesd2@nku.edu",
