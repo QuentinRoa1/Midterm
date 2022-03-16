@@ -1,25 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>podScholar</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/PodScholars-removebg-preview.png" />
 
-    <!--Bootstrap CSS-->
-    <link href="../css/bootstrap.css" rel="stylesheet" />
+    <!-- Bootstrap icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!--Bootstrap Icons-->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/bootstrap.css" rel="stylesheet" />
 
     <!--Bootstrap JS/Popper Bundle-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!--jquery hosted locally-->
-    <script src="../js/jquery-3.6.0.js"></script>
-    <title>Author</title>
+    <script src="js/jquery-3.6.0.js"></script>
+
+    <script src="js/script.js"></script>
+    
 </head>
 
 <body>
+    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5 d-flex justify-content-between">
             <div class="d-flex justify-content-start">
@@ -48,8 +57,86 @@
             </div>
         </div>
     </nav>
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-4 px-lg-5 my-5">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Listen Here</h1>
+                <p class="lead fw-normal text-white-50 mb-0">With podScholar</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section-->
+    <section class="container-fluid text-center">
+        <!--Profile Data-->
+        <div class="d-flex align-items-center flex-column mt-5" style="height: 230px; font-size:28px">
+            <table>
+                <caption>Profile Information</caption>
+                <tr>
+                    <th>Username: </th>
+                    <td id="username"></td>
+                </tr>
+                <tr>
+                    <th>Password: </th>
+                    <td id="password"></td>
+                </tr>
+                <tr>
+                    <th>Email: </th>
+                    <td id="email"></td>
+                </tr>
+            </table>
+        </div>
+        <!--Card Loading-->
+        <div class="d-flex align-items-center flex-column mt-5" style="height: 230px; font-size:28px">
+           
+        </div>
+    </section>
     
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+        </div>
+    </footer>
+    
+    <script>
+        // DATA RETRIEVAL
+        //AJAX to retrive profile data
+        $.ajax(/*profile data location*/, 
+        {
+            dataType: 'json', // type of response data
+            timeout: 500,     // timeout milliseconds
+            success: function (data,status,xhr) {   // success callback function
+                $('#username').append(data./*username*/);
+                $('#password').append(data./*password*/);
+                $('#email').append(data./*email*/);
+            },
+            error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                $('td').append('Error: ' + errorMessage);
+            }
+        });
+        
+        //AJAX for retrieving data for podcast cards
+        $.ajax(/*author data location*/, 
+        {
+            dataType: 'json', // type of response data
+            timeout: 500,     // timeout milliseconds
+            success: function (data,status,xhr) {   // success callback function
+                $('#title').append(data./*title*/);
+                $('#description').append(data./*description*/);
+                $('#tags').append(data./*tags*/);
+                $('#author').append(data./*author*/);
+            },
+            error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                $('td').append('Error: ' + errorMessage);
+            }
+        });
+    </script>
 
-</body>
-
-</html>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    </body>
+    </html>
