@@ -1,76 +1,87 @@
 // can change names if you think it is confusing, not implemented yet.
 // grabs array at index and loads into a card.
-const array=[{podtitle:"Hello", podcastID:"0",authorName:"Berry"},{podtitle:"Hello", podcastID:"0",authorName:"Berry"}];
+const array=[{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983},{podtitle:"Hello", podcastID:"0",authorName:"Berry",date:2121,journalname:"something",index:667324983}];
 const userID="3";
 const page=0;
 function loadcard(i){
     //needs work
-    var divcol=document.createElement('div');
-    divcol.classList.add("col","mb5","border","rounded","m-2");
     var divcard=document.createElement('div');
-    divcard.classList.add("card", "h-50","border-0");
-    var divbody=document.createElement('div','border-0');
-    divbody.classList.add("card-body", "p-4");
-    var divcenter=document.createElement('div');
-    divcenter.classList.add("text-center");
-    var title=document.createElement('h5');
-    title.classList.add("fw-bolder");
-    var pname=document.createElement('p');
-    var divfooter=document.createElement('div');
-    divfooter.classList.add("card-footer","p-4", "pt-0", "border-top-0", "bg-transparent");
-    var divcenter2=document.createElement('div');
-    divcenter2.classList.add("text-center");
-    var Asave=document.createElement('a');
-    Asave.classList=("btn btn-outline-dark mt-auto mx-2");
-    var Aplay=document.createElement('a');
-    Aplay.classList=("btn btn-outline-dark mt-auto mx-2");
-    //page is acting as users homepage, can be changed. passing userID as user and podcastID as cast to be caught and added to the users saved podcast array.
-    Asave.textContent='Save';
-    Aplay.textContent='Play';
-    //play is being used as the podcast page, can be changed. podcastID as cast being passed to be caught and used to load the podcast. 
-    divcenter2.append(Asave);
-    divcenter2.appendChild(Aplay); 
-    divfooter.append(divcenter2);
+    divcard.classList="card align-self-center pt-2 mb-2";
+    var divbody=document.createElement('div');
+    divbody.classList.add("card-body");
+    var title=document.createElement('h4');
+    title.classList="px-2 card-title";
+    var pname=document.createElement('div');
+    pname.classList="fs-6 px-2 card-text";
+    var journal=document.createElement('div');
+    journal.classList="fs-6 px-2 card-text";
+    var doi=document.createElement('div');
+    doi.classList="fs-6 px-2 card-text";
+    var publication=document.createElement('div');
+    publication.classList="fs-6 px-2 card-text";
+    var divblack=document.createElement('div');
+    divblack.classList="bg-black px-4 pt-2";
+    var divinfo=document.createElement('div');
+    divinfo.classList="info";
+    var btnplay=document.createElement('button');
+    btnplay.classList=("bi bi-play-fill btn p-0 text-white");
+    var spantitle=document.createElement('span');
+    spantitle.classList=("text-white ps-2 py-2");
+    spantitle.textContent=array[i].podtitle;
+    small1=document.createElement('small');
+    small2=document.createElement('small');
+    small1.classList="text-secondary py-2";
+    small2.classList="text-secondary py-2";
+    smalltime=document.createElement('small');
+    hrthing=document.createElement('hr');
+    smalltime.classList="text-secondary";
+    hrthing.classList="bg-white mt-0";
+    smalltime.textContent="0:00/20:00";
+    small1.textContent=array[i].authorName;
+    small2.textContent=array[i].date;
     pname.textContent=array[i].authorName;
+    journal.textContent=array[i].journalname;
+    publication.textContent=array[i].date;
+    doi.textContent=array[i].index;
     title.textContent=array[i].podtitle;
-    divcenter.append(title);
-    divcenter.append(pname);
-    divbody.append(divcenter);
-    divcard.append(divbody);
-    divcard.append(divfooter);
-    divcol.append(divcard);
+    divbody.append(title, pname,journal,publication,doi);
+    divinfo.append(btnplay,spantitle,small1,small2);
+    divblack.append(divinfo);
+    divcard.append(divbody,divblack,smalltime,hrthing);
+
     // should put in the right place in the document.
     var put=document.getElementById('cards-here');
-    put.append(divcol);
+    put.append(divcard);
 }
 // uses loadcard() to load a specific number of cards, can change to load from newest by using length of array of arrays - i-page*numOfCards.
 function loadcards(numOfCards){
     // should work once loadcard() is complete.
     for(var i=0;i<numOfCards;i++){
         var temp=numOfCards-i-1;
-        console.log(i);
+        console.lo
         loadcard(i);
     }
 }
 /*
-what load card needs to do with info from json blob.
-
-                <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- podcast name-->
-                                <h5 class="fw-bolder">${title}</h5>
-                                <!-- author-->
-                                ${name}
-                            </div>
-                        </div>
-                        <!-- podcast actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent d-flex justify-content-center">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="${userID}">save</a>
-                            <a class="btn btn-outline-dark mt-auto" href="${podcastID}">play</a></div>
-                        </div>
-                    </div>
+<div id="templateCard" class="card align-self-center pt-2" hidden>
+            <div class="card-body">
+                <h4 id="titleMan" class="px-2 card-title">Test Title</h4>
+                <div id="authors" class="fs-6 px-2 card-text">Sanders,gj, boos b, rhodes</div>
+                <div id="journal" class="fs-6 px-2 card-text">test journal</div>
+                <div id="year" class="fs-6 px-2 card-text">2018</div>
+                <div id="doi" class="fs-6 px-2 card-text">132571435487</div>
+            </div>
+            <div class="bg-black px-4 pt-2">
+                <div class="info">
+                    <button id="playBoy" class="bi bi-play-fill btn p-0 text-white"></button>
+                    <span id="titleBoy" class="text-white ps-2">Test Title</span>
+                    <small id="authBoy" class="text-secondary">Sanders,gj, boos b, rhodes</small>
+                    <small id="yearBoy" class="text-secondary">(2018)</small>
                 </div>
+                <!--fake timer-->
+                <small id="timeBoy" class="text-secondary">0:00/20:00</small>
+                <!--fake play bar-->
+                <hr class="bg-white mt-0">
+            </div>
+        </div>
 */
