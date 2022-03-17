@@ -8,3 +8,9 @@ Made loadcards().
 Redesigned loadcard() to implement Dylan's card template.
 Started on upload.html.
 Implemented Dylan's getPodcasts ajax to mesh with loadcards().
+
+Drew:
+about.html
+rules.html
+started on profile.html html and AJAX
+started on domfunctions.js
