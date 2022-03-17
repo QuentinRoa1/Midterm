@@ -1,0 +1,10 @@
+Quentin:
+Found template.
+Hosted Github.
+Made nav bar, that was later replaced.
+Made temp logo.
+Made loadcard().
+Made loadcards().
+Redesigned loadcard() to implement Dylan's card template.
+Started on upload.html.
+Implemented Dylan's getPodcasts ajax to mesh with loadcards().
