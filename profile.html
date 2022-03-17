@@ -24,7 +24,8 @@
 
     <script src="js/script.js"></script>
     <script src="js/header.js"></script>
-
+    <script src="js/profiler.js"></script>
+    <script src="js/getAllURLParams.js"></script>
 </head>
 
 <body>
@@ -46,35 +47,26 @@
             <div id="btnHoldingLad" class="btn-group">
             </div>
             <script>
-                buttonLoader()
+                buttonLoader();
             </script>
         </div>
     </nav>
     <!-- Section-->
-    <section class="container-fluid text-center">
+    <main class="d-flex justify-content-center text-center flex-column mx-5">
         <!--Profile Data-->
-        <div class="d-flex align-items-center flex-column mt-5" style="height: 230px; font-size:28px">
-            <table>
-                <caption>Profile Information</caption>
-                <tr>
-                    <th>Username: </th>
-                    <td id="username"></td>
-                </tr>
-                <tr>
-                    <th>Password: </th>
-                    <td id="password"></td>
-                </tr>
-                <tr>
-                    <th>Email: </th>
-                    <td id="email"></td>
-                </tr>
-            </table>
+        <div id="profileStuff" class="d-flex flex-column justify-content-center mt-5">
+            <h2><span id="fName"></span> <span id="lName"></span></h2>
+            <small id="posTitle"></small>
+            <small id="uniOrg"></small>
         </div>
+        <hr>
+
         <!--Card Loading-->
+        <h3>Uploaded Podcasts</h3>
         <div class="d-flex align-items-center flex-column mt-5" style="height: 230px; font-size:28px">
 
         </div>
-    </section>
+    </main>
 
     <!-- Footer-->
     <footer class="py-5 bg-dark">
@@ -84,35 +76,7 @@
     </footer>
 
     <script>
-        // DATA RETRIEVAL
-        //AJAX to retrive profile data
-        $.ajax( /*profile data location*/ , {
-            dataType: 'json', // type of response data
-            timeout: 500, // timeout milliseconds
-            success: function(data, status, xhr) { // success callback function
-                $('#username').append(data. /*username*/ );
-                $('#password').append(data. /*password*/ );
-                $('#email').append(data. /*email*/ );
-            },
-            error: function(jqXhr, textStatus, errorMessage) { // error callback 
-                $('td').append('Error: ' + errorMessage);
-            }
-        });
-
-        //AJAX for retrieving data for podcast cards
-        $.ajax( /*author data location*/ , {
-            dataType: 'json', // type of response data
-            timeout: 500, // timeout milliseconds
-            success: function(data, status, xhr) { // success callback function
-                $('#title').append(data. /*title*/ );
-                $('#description').append(data. /*description*/ );
-                $('#tags').append(data. /*tags*/ );
-                $('#author').append(data. /*author*/ );
-            },
-            error: function(jqXhr, textStatus, errorMessage) { // error callback 
-                $('td').append('Error: ' + errorMessage);
-            }
-        });
+        profiler();
     </script>
 
     <!-- Bootstrap core JS-->

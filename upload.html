@@ -40,42 +40,70 @@
             <div id="btnHoldingLad" class="btn-group">
             </div>
             <script>
-                buttonLoader()
+                buttonLoader();
             </script>
         </div>
     </nav>
-    <div class="d-flex justify-content-center my-4">
-        <div class="card w-75">
-            <h5 class="card-header text-center">Submission</h5>
-            <div class="card-body d-flex justify-content-center">
-                <form class="">
-                    <ul class="navbar-nav">
-                        <li>
-                            <label for="title">Title:</label>
-                            <input type="text" id="title" class="form-control" placeholder="Title">
-                        </li>
-                        <li>
-                            <label for="doi">DOI#:</label>
-                            <input type="text" id="doi" class="form-control" placeholder="DOI">
+    <main class="d-flex justify-content-center flex-column my-4">
+        <h5 class="text-center">Upload A Podcast</h5>
+        <div id="formHolder" class="d-flex justify-content-center">
+            <form id="uploadForm" class="container">
+                <ul class="list-unstyled d-flex flex-column">
+                    <li class="my-2">
+                        <label for="title">Title:</label>
+                        <input type="text" id="title" class="form-control" placeholder="Title" required>
+                    </li>
+                    <li class="my-2">
+                        <label for="journal">Journal:</label>
+                        <input type="text" id="journal" class="form-control" placeholder="journal" required>
+                    </li>
+                    <li class="my-2">
+                        <label for="authors">Authors:</label>
+                        <input type="text" id="authors" class="form-control" placeholder="authors" required>
+                    </li>
+                    <!--Category will be made into a select, temporarily a text field-->
+                    <li class="my-2">
+                        <label for="category">Category:</label>
+                        <input type="text" id="category" class="form-control" placeholder="category" required>
+                    </li>
+                    <!--tags is to be improved-->
+                    <li class="my-2">
+                        <label for="tags">Tags: (comma separated list)</label>
+                        <input type="text" id="tags" class="form-control" placeholder="this,is,a,tag,list" required>
+                    </li>
+                    <li class="my-2">
+                        <label for="pubDate">Published Date:</label>
+                        <input type="date" id="pubDate" class="form-control" placeholder="pubDate" required>
+                    </li>
+                    <li class="my-2">
+                        <label for="doi">DOI#:</label>
+                        <input type="text" id="doi" class="form-control" placeholder="DOI" required>
 
-                        </li>
-                        <li>
-                            <label for="desc">Description:</label>
-                            <textarea id="desc" rows="3" cols="80" class="form-control"></textarea>
-                        </li>
-                        <li>
-                            <label for="file">File:</label>
-                            <input type="file" id="file" class="form-control">
-                            <small id="filedesc" class="form-text text-muted">Please upload an .mp4 file.</small>
-                        </li>
-                        <li class="text-center">
-                            <button type="submit" id="submit" class="btn btn-outline-dark">Submit</button>
-                        </li>
-                    </ul>
-                </form>
-            </div>
+                    </li>
+                    <li class="my-2">
+                        <label for="file">File:</label>
+                        <input type="text" id="file" class="form-control" required>
+                        <small id="filedesc" class="form-text text-muted">Please upload an .mp3 file.</small>
+                    </li>
+                    <li class="my-2">
+                        <!--Terms and conditions-->
+                        <div class="form-check my-2">
+                            <input class="form-check-input" type="checkbox" value="" id="termsConds" name="termsConds" required>
+                            <label class="form-check-label" for="termsConds">
+                  Please Accept the Terms and Conditions
+                </label>
+                        </div>
+                    </li>
+                    <li class="text-center">
+                        <button type="submit" id="submitBtn" class="btn btn-outline-dark">Submit</button>
+                    </li>
+                </ul>
+            </form>
         </div>
-    </div>
+        <div id="thanksMessage" class="visually-hidden">
+            Thank you for sharing your work with us!
+        </div>
+    </main>
 
 </body>
 
