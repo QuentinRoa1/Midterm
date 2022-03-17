@@ -14,3 +14,14 @@ about.html
 rules.html
 started on profile.html html and AJAX
 started on domfunctions.js
+
+Dylan:
+- Created card template
+- finished header design
+- finished index.html design
+- created markdown to assist with workflow
+- provided ajax calls to facilitate function design
+- developed authentication system
+- redesiged all forms to be functional
+- created dynamic site aspects that change for logged in users
+- "designed" profile.html
