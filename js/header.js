@@ -1,6 +1,6 @@
 // checks if a user is signed in, returns true if so
 function bouncer() {
-    if (window.sessionStorage.getItem("email")) {
+    if (window.sessionStorage.getItem("ID")) {
         if (window.sessionStorage.getItem("auth") == "true") {
             return true;
         }
@@ -13,10 +13,21 @@ function buttonLoader() {
     if (bouncer()) {
         console.log("ping")
             // ACCOUNT INFO
-        let accountBtn = document.createElement("a")
-        accountBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-person-fill");
-        accountBtn.href = "profile.html";
-        accountBtn.innerHTML += " Profile";
+        if (window.location.pathname.slice(1) !== "profile.html") {
+            let accountBtn = document.createElement("a")
+            accountBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-person-fill");
+            accountBtn.href = `profile.html?ID=${sessionStorage.getItem("ID")}`;
+            accountBtn.innerHTML += " Profile";
+            btnHoldingLad.appendChild(accountBtn)
+        }
+
+        if (window.location.pathname.slice(1) !== "upload.html") {
+            let uploadBtn = document.createElement("a")
+            uploadBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-upload");
+            uploadBtn.href = "upload.html";
+            uploadBtn.innerHTML += " Upload";
+            btnHoldingLad.appendChild(uploadBtn);
+        }
         /* // SAVED -- hidden until implementation
         let savedBtn = document.createElement("a")
         savedBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-bookmark-fill");
@@ -37,9 +48,8 @@ function buttonLoader() {
         signOutBtn.href = "./sign/out.html";
         signOutBtn.innerHTML += " Sign Out";
 
-        btnHoldingLad.appendChild(accountBtn)
-            // hidden until implementation
-            //btnHoldingLad.appendChild(savedBtn)
+        // hidden until implementation
+        //btnHoldingLad.appendChild(savedBtn)
         btnHoldingLad.appendChild(billingBtn)
         btnHoldingLad.appendChild(signOutBtn)
             //if signed in, append a series of links

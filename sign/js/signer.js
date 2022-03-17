@@ -21,10 +21,10 @@ function signIn(e) {
             alert("Cannot Access Data at this time. Please Try again later");
         },
         success: (userData) => {
-            for (let user of userData) {
-                if (user.email == e.target[0].value) {
-                    if (user.password == e.target[1].value) {
-                        sessionStorage.setItem("email", user.email);
+            for (let user in userData) {
+                if (userData[user].email == e.target[0].value) {
+                    if (userData[user].password == e.target[1].value) {
+                        sessionStorage.setItem("ID", user);
                         sessionStorage.setItem("auth", true);
 
                         window.location.href = "../index.html";
