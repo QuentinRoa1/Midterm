@@ -51,6 +51,7 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
 - if this is the viewer's profile, add an edit button
 
 ## **Data Manipulation**
+
 ### **Ajax Accessors**
 - Methods called that retrieve relevant data. They DO NOT VALIDATE DATA. DATA VALIDATION MUST BE DONE BEFORE CALLING THESE METHODS
 - **getAuthors()**
@@ -84,8 +85,6 @@ Minimalist, whites, grays, blacks and subtle blues. Keep it simple to save time.
   - gets Pod array
   - appends ratingInfo to PodRay[pod][ratings]
   - put updated podlist to json blob
-
-## **Data Validation**
 
 ## **DOM Manipulation**
 ### Feed Stuff

@@ -19,7 +19,10 @@
     <!--Bootstrap JS/Popper Bundle-->
 
     <!--jquery hosted locally-->
- 
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="./js/header.js"></script>
+
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -31,55 +34,32 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Account</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" hidden>
-                                <li><a class="dropdown-item" href="/authors/profile.html">My Account</a></li>
-                                <li><hr class="dropdown-divider" /></li>
-                                <li hidden><a class="dropdown-item" href="authors/profile.html">Upload</a></li>
-                                <li><a class="dropdown-item" href="authors/profile.html">Rules</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <form class="d-flex">
-                                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                                <button class="btn btn-outline-dark" type="submit">Search</button>
-                            </form>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" href="Rules.html">Rules</a></li>
                     </ul>
                 </div>
             </div>
             <div class="">
                 <a class="navbar-brand" href="#!"><img src="assets/PodScholars-removebg-preview.png" height="50px"></a>
             </div>
-            <div>
-                <form class="">
-                    <form>
-                        <button class="btn btn-outline-dark" type="button" onclick="window.location.href='sign/in.html';"> Sign In </button>
-                        <button class="btn btn-outline-dark" type="button" onclick="window.location.href='sign/up.html';"> Sign Up </button>
-                      </form>
-                </form>
+            <div id="btnHoldingLad" class="btn-group">
             </div>
+            <script>
+                buttonLoader()
+            </script>
         </div>
     </nav>
-    <!-- Header-->
-    <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
-            <div class="text-center text-white">
-                <h1 class="display-4 fw-bolder">Listen Here</h1>
-                <p class="lead fw-normal text-white-50 mb-0">With podScholar</p>
-            </div>
-        </div>
-    </header>
     <!-- Section-->
-    <section class="py-5 d-flex">
+    <section class="py-4 d-flex flex-column">
+        <form class="d-flex w-75 align-self-center">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button id="searchButton" class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
         <div class="container px-4 px-lg-5 mt-5">
             <div id="cards-here" class="row row-col-1 justify-content-center">
             </div>
         </div>
-            </section>
+    </section>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">

@@ -16,56 +16,50 @@
 
     <!--jquery hosted locally-->
     <script src="../js/jquery-3.6.0.js"></script>
+    <script src="./js/signer.js"></script>
     <title>Sign In</title>
 </head>
 
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-5 d-flex justify-content-between">
-            <div class="d-flex justify-content-start">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-dark" type="submit">Search</button>
-                      </form>
-                </div>
-            </div>
-            <div class="">
-                <a class="navbar-brand" onclick="window.location.href='../index.html';" href="#!"><img src="../assets/PodScholars-removebg-preview.png" height="50px"></a>
-            </div>
+        <div class="container px-4 px-lg-5 d-flex justify-content-center">
             <div>
-                <form class="">
-                </form>
+                <a class="navbar-brand" onclick="window.location.href='../index.html';" href="#!"><img src="../assets/PodScholars-removebg-preview.png" height="50px"></a>
             </div>
         </div>
     </nav>
 
-    <div class="d-flex align-items-center flex-column mt-5" style="height: 230px; font-size:28px">
+    <form id="signForm" class="d-flex align-items-center flex-column mt-5">
         <!-- Sign Up title-->
-        <div class="mt-5 mb-3 p-2">Sign In</div>
+        <h3 class="mt-5 mb-3 p-2">Sign In</h3>
 
+        <strong id="invalidFeedback" class="text-danger visually-hidden">Invalid Email/Password</strong>
 
         <!-- Email Form-->
-        <div class="h6" style="padding-right:183px;">Email/Username</div>
-        <div class="mb-3 mt-auto form-outline">
-            <input type="email" id="typeEmailX-2" class="form-control form-control-lg" />
+        <div>
+            <div class="h6">Email</div>
+            <div class="mb-3 mt-auto form-outline">
+                <input type="email" id="emailField" class="form-control form-control-lg" required/>
+            </div>
         </div>
 
         <!-- Password Form-->
-        <div class="h6" style="padding-right:235px;">Password</div>
-        <div class="mb-5 mt-auto form-outline">
-            <input type="password" id="typeEmailX-2" class="form-control form-control-lg" />
+        <div>
+            <div class="h6">Password</div>
+            <div class="mb-5 mt-auto form-outline">
+                <input type="password" id="passwordField" class="form-control form-control-lg" required/>
+            </div>
         </div>
 
+
         <!-- Sign Up Button-->
-        <button type="button" class="btn btn-dark">Sign In</button>
-      </div>
+        <button type="submit" class="btn btn-dark">Sign In</button>
+    </form>
 </body>
+
+<script>
+    signInStart()
+</script>
 
 </html>
