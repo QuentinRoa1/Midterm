@@ -30,4 +30,4 @@ Dylan:
 - developed authentication system
 - redesiged all forms to be functional
 - created dynamic site aspects that change for logged in users
-- "designed" profile.html
+- designed profile.html

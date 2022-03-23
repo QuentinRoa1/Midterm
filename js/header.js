@@ -14,58 +14,53 @@ function buttonLoader() {
         console.log("ping")
             // ACCOUNT INFO
         if (window.location.pathname.slice(1) !== "profile.html") {
-            let accountBtn = document.createElement("a")
-            accountBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-person-fill");
-            accountBtn.href = `profile.html?ID=${sessionStorage.getItem("ID")}`;
-            accountBtn.innerHTML += " Profile";
-            btnHoldingLad.appendChild(accountBtn)
+            buttonMan("Profile", "bi-person-fill", `profile.html?ID=${sessionStorage.getItem("ID")}`, btnHoldingLad);
         }
 
         if (window.location.pathname.slice(1) !== "upload.html") {
-            let uploadBtn = document.createElement("a")
-            uploadBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-upload");
-            uploadBtn.href = "upload.html";
-            uploadBtn.innerHTML += " Upload";
-            btnHoldingLad.appendChild(uploadBtn);
+            buttonMan("Upload", "bi-upload", "upload.html", btnHoldingLad);
         }
-        /* // SAVED -- hidden until implementation
-        let savedBtn = document.createElement("a")
-        savedBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-bookmark-fill");
-        savedBtn.href = "saved.html";
-        savedBtn.innerHTML += " Saved"; */
 
         // BILLING
-        let billingBtn = document.createElement("a")
-        billingBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-currency-dollar");
-        billingBtn.addEventListener("click", () => {
+        buttonMan("Billing", "bi-currency-dollar", "", btnHoldingLad).addEventListener("click", () => {
             alert("not implemented yet");
         });
-        billingBtn.innerHTML += " Billing";
 
         // LOGOUT
-        let signOutBtn = document.createElement("a")
-        signOutBtn.classList.add("btn", "btn-sm", "btn-outline-dark", "bi", "bi-key-fill");
-        signOutBtn.href = "./sign/out.html";
-        signOutBtn.innerHTML += " Sign Out";
-
-        // hidden until implementation
-        //btnHoldingLad.appendChild(savedBtn)
-        btnHoldingLad.appendChild(billingBtn)
-        btnHoldingLad.appendChild(signOutBtn)
-            //if signed in, append a series of links
+        buttonMan("Logout", "bi-key-fill", "./sign/out.html", btnHoldingLad);
+        //if signed in, append a series of links
     } else {
-        console.log("ping")
         let signInBtn = document.createElement("a")
-        signInBtn.classList.add("btn", "btn-sm", "btn-outline-dark");
+        signInBtn.classList.add("btn", "btn-sm", "btn-outline-light");
         signInBtn.href = "./sign/in.html";
         signInBtn.innerHTML += "Sign In";
 
         let signUpBtn = document.createElement("a")
-        signUpBtn.classList.add("btn", "btn-sm", "btn-outline-dark");
+        signUpBtn.classList.add("btn", "btn-sm", "btn-outline-light");
         signUpBtn.href = "./sign/up.html";
         signUpBtn.innerHTML += "Sign Up";
 
         btnHoldingLad.appendChild(signInBtn)
         btnHoldingLad.appendChild(signUpBtn)
     }
+}
+
+// text content
+// icon
+// links to
+function buttonMan(textMan, iconUsed, linksTo, dest) {
+    let newButton = document.createElement("a");
+    let buttonIcon = document.createElement("span");
+
+    newButton.classList.add("btn", "btn-dark",
+        "header-btn", "d-flex", "flex-column", "px-2");
+    buttonIcon.classList.add("bi", iconUsed, "fs-5");
+    newButton.href = linksTo;
+
+    newButton.appendChild(buttonIcon);
+    newButton.append(textMan);
+
+    dest.appendChild(newButton);
+
+    return newButton;
 }
