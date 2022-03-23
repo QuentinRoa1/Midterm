@@ -15,6 +15,8 @@ function buttonLoader() {
             // ACCOUNT INFO
         if (window.location.pathname.slice(1) !== "profile.html") {
             buttonMan("Profile", "bi-person-fill", `profile.html?ID=${sessionStorage.getItem("ID")}`, btnHoldingLad);
+        } else {
+            buttonMan("Saved", "bi-bookmark-fill", `saved.html`, btnHoldingLad);
         }
 
         if (window.location.pathname.slice(1) !== "upload.html") {
@@ -30,18 +32,8 @@ function buttonLoader() {
         buttonMan("Logout", "bi-key-fill", "./sign/out.html", btnHoldingLad);
         //if signed in, append a series of links
     } else {
-        let signInBtn = document.createElement("a")
-        signInBtn.classList.add("btn", "btn-sm", "btn-outline-light");
-        signInBtn.href = "./sign/in.html";
-        signInBtn.innerHTML += "Sign In";
-
-        let signUpBtn = document.createElement("a")
-        signUpBtn.classList.add("btn", "btn-sm", "btn-outline-light");
-        signUpBtn.href = "./sign/up.html";
-        signUpBtn.innerHTML += "Sign Up";
-
-        btnHoldingLad.appendChild(signInBtn)
-        btnHoldingLad.appendChild(signUpBtn)
+        buttonMan("Sign In", "bi-clipboard", "./sign/in.html", btnHoldingLad)
+        buttonMan("Sign Up", "bi-file-earmark-person", "./sign/up.html", btnHoldingLad)
     }
 }
 

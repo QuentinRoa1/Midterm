@@ -24,6 +24,8 @@
 
     <!--header script-->
     <script src="./js/header.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/searcher.js"></script>
 
 </head>
 
@@ -35,7 +37,7 @@
             <div class="ms-5 align-self-center">
                 <a class="navbar-brand header-Logo fs-1" href="#">PodScholar</a>
             </div>
-            <div id="btnHoldingLad" class="btn-group d-flex flex-row justify-content-center p-0 m-0 h-100 me-lg-5">
+            <div id="btnHoldingLad" class="btn-group d-flex flex-row justify-content-center p-0 m-0 h-100 me-lg-5 align-self-center">
             </div>
             <script>
                 buttonLoader()
@@ -43,16 +45,16 @@
         </div>
     </nav>
     <!-- Section-->
-    <section class="py-4 d-flex flex-column">
-        <form class="d-flex w-75 align-self-center">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <main class="py-4 d-flex flex-column">
+        <form class="d-flex w-75 align-self-center mt-3" action="search.html">
+            <input class="form-control me-2" name="terms" type="search" placeholder="Search" aria-label="Search">
             <button id="searchButton" class="btn btn-outline-dark" type="submit">Search</button>
         </form>
         <div class="container px-4 px-lg-5 mt-5">
-            <div id="cards-here" class="row row-col-1 justify-content-center">
+            <div id="cards-here" class="row row-col-1 justify-content-center mx-md-5 px-md-5">
             </div>
         </div>
-    </section>
+    </main>
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <ul>

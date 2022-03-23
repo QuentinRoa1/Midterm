@@ -120,7 +120,7 @@ function loadcard(aarray) {
     journal.textContent = aarray.journal;
     publication.textContent = aarray.pubDate;
     doi.textContent = aarray.DOI;
-    title.textContent = aarray.journal;
+    title.textContent = aarray.title;
     //Appends everything.
     div_body.append(title, pname, journal, publication, doi);
     div_info.append(spantitle, small1, small2);
