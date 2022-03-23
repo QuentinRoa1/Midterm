@@ -43,7 +43,7 @@ function loadcard(aarray) {
     //* top part of card
     //Sets up outer most div.
     var div_card = document.createElement('div');
-    div_card.classList = "card align-self-center pt-2 mb-2 mx-0 px-0";
+    div_card.classList = "card align-self-center pt-2 mb-4 mx-0 px-0";
 
     //Sets up div body.
     var div_body = document.createElement('div');
